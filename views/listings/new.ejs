@@ -1,0 +1,61 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<div class="row">
+    <div class="col-8 offset-2">
+        <body>
+            <br>
+            <h3>Create a new Listing</h3>
+            <form method="post" action="/listings" novalidate class="new-form needs-validation" enctype="multipart/form-data">
+                <!-- Needs-validation for validate information more details in bootstrap-form-validation -->
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input name="listing[title]" placeholder="Add a catchy title" type="text" class="form-control" required>
+                    <div class="valid-feedback">Title Looks good!</div>
+                    <div class="invalid-feedback">Enter a valid Title.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" type="text" class="form-control" required></textarea>
+                    <div class="valid-feedback">Description Looks good!</div>
+                    <div class="invalid-feedback">Enter a Description.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Upload Image</label>
+                    <input name="listing[image]" type="file" class="form-control" required>
+                    <div class="valid-feedback">Image Looks good!</div>
+                    <div class="invalid-feedback">Upload Image.</div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input name="listing[price]" placeholder="2000" type="number" min="0" class="form-control" required>
+                        <div class="valid-feedback">Good Price!</div>
+                        <div class="invalid-feedback">Enter valid Price.</div>
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input name="listing[country]" placeholder="India" type="text" class="form-control" required>
+                        <div class="valid-feedback">Country Looks good!</div>
+                        <div class="invalid-feedback">Country name should be valid.</div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input name="listing[location]" placeholder="Surat, Gujarat" type="text" class="form-control" required>
+                    <div class="valid-feedback">Location Looks good!</div>
+                    <div class="invalid-feedback">Location should be valid.</div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between;">
+                    <button type="submit" class="btn btn-dark btn-new mt-3">Add</button>
+                    <button type="button" id="backButton" class="btn btn-primary btn-new mt-3">Back</button>
+                </div>
+            </form>
+        </body>
+    </div>
+</div>
+
+<script>
+    document.getElementById('backButton').addEventListener('click', function() {
+        window.location.href = '/listings';
+    });
+</script>

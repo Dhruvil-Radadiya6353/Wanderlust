@@ -1,0 +1,62 @@
+<style>
+    .flash-message {
+        padding: 10px;
+        margin: auto;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        animation: fadeInOut 3s ease-in-out forwards;
+    }
+
+    .alert-dismissible .btn-close{
+        padding: 1rem 1rem ;
+    }
+    @keyframes fadeInOut {
+        0% {
+            opacity: 1;
+        }
+
+        90% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+            display: none;
+        }
+    }
+    @media (max-width: 767.98px) {
+        .flash-message{
+            max-width: 340px ;
+            padding: 10px; 
+            width: 100% ;
+        }
+    }
+
+</style>
+
+<% if (success && success.length) { %>
+    <div class="alert alert-success alert-dismissible fade show col-6  flash-message" role="alert">
+        <i class="fa-solid fa-circle-check fa-xl" style="color: #28a745;"></i>&nbsp;&nbsp;
+        <%= success %>
+        <strong><u><%= message %></u></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+
+<% if (warning && warning.length) { %>
+    <div class="alert alert-warning alert-dismissible fade show col-6 flash-message" role="alert">
+        <i class="fa-solid fa-circle-exclamation fa-beat fa-xl" style="color: #ff9800;"></i>&nbsp;&nbsp;
+        <strong><u><%= message %></u></strong>
+        <%= warning %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+
+<% if (error && error.length) { %>
+    <div class="alert alert-danger alert-dismissible fade show col-6 flash-message" role="alert">
+        <i class="fa-solid fa-triangle-exclamation fa-xl" style="color: #dc3545;"></i>&nbsp;&nbsp;
+        <strong><u><%= message %></u></strong>
+        <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>

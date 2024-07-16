@@ -1,0 +1,376 @@
+/* Body */
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container {
+    flex: 1;
+    padding: 2rem;
+}
+
+/* Headings */
+h2,
+h3 {
+    color: #222222;
+    margin-bottom: 2rem;
+}
+
+/* Forms */
+.edit-form,
+.new-form {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Columns */
+.col-8.offset-2,
+.col-12.col-md-8.offset-md-2 {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Margin Bottom */
+.mb-3 {
+    margin-bottom: 1.5rem;
+}
+
+/* Listing Card */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.2s;
+    width: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    width: 100% !important;
+    object-fit: cover !important;
+    height: 20rem;
+}
+
+.card-body {
+    padding: 1rem !important;
+}
+
+.card-footer {
+    background-color: #f8f9fa;
+    border-top: none;
+}
+
+.card-text p {
+    font-weight: 400;
+}
+
+.listing-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-img-overlay {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.card:hover .card-img-overlay {
+    opacity: 0.2;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fa424d;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Navbar */
+.navbar {
+    height: 5rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fa-compass {
+    color: #fa424d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+    margin-right: 1rem;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #007bff;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.navbar-toggler-icon {
+    color: #333;
+}
+
+/* Footer */
+.footer {
+    background-color: #f8f9fa;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+    padding: 1rem 0;
+}
+
+/* Show image */
+.show-img {
+    height: 30vh;
+    object-fit: cover;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Buttons */
+.btns {
+    display: flex !important;
+    justify-content: space-between;
+}
+
+.btn {
+    min-width: 100px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-top: none;
+    padding: 0.5rem 1rem;
+}
+
+/* Error Page */
+#errbody {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+}
+
+#errstatuscode {
+    color: #c0392b;
+}
+
+#errmsg {
+    color: #34495e;
+    font-size: 18px;
+}
+
+#errback {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #2980b9;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Review Section */
+.review-section {
+    margin-top: 2rem;
+}
+
+.review-section hr {
+    margin-bottom: 2rem;
+}
+
+.review-section h4 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.review-section form {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.review-section .form-label {
+    font-weight: 600;
+    color: #333;
+}
+
+.review-section .form-control,
+.review-section .form-range {
+    margin-bottom: 1rem;
+    border-radius: 0.25rem;
+}
+
+.review-section .btn-outline-dark {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.review-section .btn-outline-dark:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.review-section .review-card {
+    margin-bottom: 1.5rem;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.review-section .review-card:hover {
+    transform: translateY(-5px);
+}
+
+.review-section .review-card .card-body {
+    padding: 1rem;
+    background-color: #fff;
+}
+
+.review-section .review-card .card-title {
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.review-section .review-card .card-text {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.review-section .review-card .card-text:last-child {
+    font-weight: 600;
+    color: #fa424d;
+}
+
+.review-section .review-card .card-footer {
+    background-color: #f8f9fa;
+    border-top: none;
+    padding: 0.5rem 1rem;
+}
+
+/* Adjusting the width and alignment for reviews */
+.review-section .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.review-section .col-5 {
+    flex: 0 0 48%;
+    max-width: 48%;
+}
+
+/* Responsive Styles */
+@media (max-width: 767.98px) {
+    .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+        padding: 0.5rem 1rem;
+        background-color: #f8f9fa;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 1rem;
+        border-bottom: 1px solid #dee2e6;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    .navbar-collapse.collapse.show {
+        background-color: #f8f9fa;
+    }
+}

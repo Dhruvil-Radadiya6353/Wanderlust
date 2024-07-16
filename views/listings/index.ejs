@@ -1,0 +1,285 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<style>
+    /* Add some basic styles for the button */
+    #button {
+        display: inline-block;
+        background-color: #007BFF; /* Bootstrap's primary blue */
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 4px;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        transition: background-color .3s, opacity .5s, visibility .5s;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 1000;
+    }
+
+    #button::after {
+        content: "\f077";
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 2em;
+        line-height: 50px;
+        color: #fff;
+    }
+
+    #button:hover {
+        cursor: pointer;
+        background-color: #0056b3; /* Darker shade of blue */
+    }
+
+    #button:active {
+        background-color: #004085; /* Even darker shade of blue */
+    }
+
+    #button.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+     
+    /* Media query for smaller screens */
+    @media (max-width: 768px) {
+        #button {
+            width: 40px;
+            height: 40px;
+            bottom: 25px;
+            right: 25px;
+        }
+
+        #button::after {
+            font-size: 1.75em;
+            line-height: 40px;
+        }
+    }
+
+    /* Media query for extra small screens */
+    @media (max-width: 576px) {
+        #button {
+            width: 35px;
+            height: 35px;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        #button::after {
+            font-size: 1.5em;
+            line-height: 35px;
+        }
+    }
+
+    /* Media query for very small screens */
+    @media (max-width: 400px) {
+        #button {
+            width: 30px;
+            height: 30px;
+            bottom: 15px;
+            right: 15px;
+        }
+
+        #button::after {
+            font-size: 1.25em;
+            line-height: 30px;
+        }
+    }
+
+    #filters {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .filter {
+        text-align: center;
+        margin-right: 2rem;
+        margin-top: 2rem;
+        opacity: 0.7;
+    }
+    .filter:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    .filter p{
+        font-size: 0.8rem;
+    }
+
+    .tax-info {
+        display: none;
+    }
+
+   /* Styles for tax-toggle section */
+   .tax-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f8f9fa;
+        border: 1px solid #ced4da;
+        border-radius: 0.5rem; /* Reduced border-radius */
+        padding: 0.5rem 1rem; /* Adjusted padding */
+        margin-left: 2rem;
+        margin-top: 1rem;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+
+    .tax-toggle:hover {
+        background-color: #e9ecef; /* Lighter background on hover */
+        transform: translateY(-3px); /* Lift on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .tax-toggle input[type="checkbox"] {
+        display: none; /* Hide the checkbox */
+    }
+
+    .tax-toggle .form-check-label {
+        margin-bottom: 0;
+    }
+
+    .tax-toggle .form-check-input:checked + .form-check-label::before {
+        content: "\f00c"; /* FontAwesome check icon */
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 1.2em;
+        color: #007BFF; /* Blue color for checked state */
+        margin-right: 0.5rem;
+    }
+
+    .tax-toggle .form-check-label {
+        display: flex;
+        align-items: center;
+    }
+</style>
+
+
+<a id="button"></a>
+
+<body>
+    
+    <div id="filters">
+        <div class="filter">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending </p>
+        </div>
+
+        <div class="filter">
+            <div> <i class="fa-solid fa-bed"></i></div>
+            <p>Rooms</p>
+        </div>
+
+        <div class="filter">
+            <div><i class="fa-solid fa-city"></i></div>
+            <p>Iconic Cities </p>
+        </div>
+        
+        <div class="filter">
+            <div><i class="fa-solid fa-mountain-sun"></i></div>
+            <p>Mountains</p>
+        </div>
+
+        <div class="filter">
+            <div><i class="fa-brands fa-fort-awesome"></i></i></div>
+            <p>Castles </p>
+        </div>
+        
+        <div class="filter">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p>Amazing Pools</p>
+        </div>
+
+        <div class="filter">
+            <div><i class="fa-solid fa-campground"></i></div>
+            <p>Camping </p>
+        </div>
+        
+        <div class="filter">
+            <div><i class="fa-solid fa-cow"></i></div>
+            <p>Farms</p>
+        </div>
+
+        <div class="filter">
+            <div><i class="fa-regular fa-snowflake"></i></div>
+            <p>Arctic</p>
+        </div>
+
+        <div class="filter">
+            <div><i class="fa-solid fa-umbrella-beach"></i></i></div>
+            <p>Beach</p>
+        </div>
+
+        <div class="filter">
+            <div><i class="fa-solid fa-golf-ball-tee"></i></div>
+            <p>Golfing</p>
+        </div>
+
+        <div class="tax-toggle">
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+              </div>
+        </div>
+
+        </div>
+
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <% allListing.forEach(function(listing) { %>
+                <div class="col">
+                    <a href="/listings/<%= listing.id %>" class="listing-link">
+                        <div class="card listing-card h-100">
+                            <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image">
+                            <div class="card-img-overlay">Wanderlust</div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b><%= listing.title %></b><br>
+                                    &#8377; <%= listing.price.toLocaleString("en-IN") %>/ night
+                                    <i class="tax-info"> &nbsp;&nbsp;+18% GST</i>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var btn = $('#button');
+
+        $(window).scroll(function() {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+
+        btn.on('click', function(e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+    });
+
+    let taxSwitch = document.getElementById("flexSwitchCheckDefault");
+    taxSwitch.addEventListener("click",()=>{
+        let taxInfo = document.getElementsByClassName("tax-info");
+        for(info of taxInfo){
+            if(info.style.display != "inline"){
+                info.style.display = "inline";
+            }
+            else{
+                info.style.display = "none";
+            }
+        }
+    });
+</script>
