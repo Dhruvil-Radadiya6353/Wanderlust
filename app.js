@@ -65,7 +65,7 @@ const SessionOption = {
 async function main() {
     try {
         await mongoose.connect(dbUrl);
-        console.log("Connection successful");   111``
+        console.log("Connection successful");
     } catch (err) {
         console.error("Database connection error:", err);
     }
